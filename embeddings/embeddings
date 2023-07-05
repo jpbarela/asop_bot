@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+import click
+
+
+@click.group
+def embeddings():
+    pass
+
+
+@embeddings.command()
+def download():
+    """
+        Downloads the Actuarial Standards of Practice to the pdf_data folder
+    """
+    click.echo("download")
+
+
+if __name__ == '__main__':
+    embeddings()
