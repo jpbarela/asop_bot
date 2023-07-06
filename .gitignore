@@ -1,1 +1,9 @@
+## Local data files
+embeddings/downloaded_pdfs/**
+
+## IDE ignores
 .vscode/**
+
+## python tooling ignores
+**/.python-version
+**/__pycache__/**
