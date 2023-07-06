@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 import click
+import requests
+
+from page_objects import AbcdPage
 
 
 @click.group
@@ -12,7 +15,17 @@ def download():
     """
         Downloads the Actuarial Standards of Practice to the pdf_data folder
     """
-    click.echo("download")
+    abcd_url = "http://www.actuarialstandardsboard.org/standards-of-practice/"
+    abcd_html = requests.get(abcd_url)
+
+    abcd_page = AbcdPage(abcd_html.content)
+
+    for pdf_url in abcd_page.pdf_links():
+        head = requests.head(pdf_url)
+        if 'pdf' in head.headers.get("content-type"):
+            pdf = requests.get(pdf_url)
+            name = pdf_url.split("/")[-1]
+            open(f"downloaded_pdfs/{name}", "wb").write(pdf.content)
 
 
 if __name__ == '__main__':
