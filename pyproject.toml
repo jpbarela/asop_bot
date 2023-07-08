@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A sample LLM project for actuaries"
 authors = ["JP Barela"]
 readme = "README.md"
-# packages = [{include = "asop_bot"}]
+packages = [{include = "vectorstore"},{include = "embeddings"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

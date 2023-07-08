@@ -7,7 +7,7 @@ RUN poetry config virtualenvs.create false
 
 COPY pyproject.toml poetry.lock /app/
 
-RUN poetry install --with asop_bot
+RUN poetry install --with asop_bot --no-root
 
 COPY ./asop_bot /app/
 
