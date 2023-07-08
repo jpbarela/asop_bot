@@ -6,6 +6,10 @@ authors = ["JP Barela"]
 readme = "README.md"
 packages = [{include = "vectorstore"},{include = "embeddings"}]
 
+[[tool.mypy.overrides]]
+module=["chromadb", "chromadb.config"]
+ignore_missing_imports = "True"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 

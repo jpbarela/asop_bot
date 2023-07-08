@@ -1,3 +1,5 @@
+from typing import List
+
 from langchain.document_loaders import PyPDFLoader
 import os
 from pathlib import Path
@@ -20,7 +22,7 @@ def process():
         save_documents(pages)
 
 
-def _get_pds_from_directory() -> None:
+def _get_pds_from_directory() -> List[str]:
     """
         Retrieves a list of the files in download_pdfs directory
     """
