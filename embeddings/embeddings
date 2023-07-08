@@ -3,6 +3,8 @@ import click
 import requests
 
 from page_objects import AbcdPage
+import pipeline
+from vectorstore import similarity_query
 
 
 @click.group
@@ -26,6 +28,16 @@ def download():
             pdf = requests.get(pdf_url)
             name = pdf_url.split("/")[-1]
             open(f"downloaded_pdfs/{name}", "wb").write(pdf.content)
+
+
+@embeddings.command()
+def process():
+    """
+        Processes the downloaded ASOPs in a vector store
+    """
+    pipeline.process()
+    docs = similarity_query("what is ASOP 1?")
+    print(docs)
 
 
 if __name__ == '__main__':
