@@ -1,6 +1,6 @@
 import pathlib
 
-from page_objects import AbcdPage
+from embeddings.page_objects import AbcdPage
 
 
 def test_pdf_links() -> None:
