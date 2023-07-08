@@ -13,12 +13,12 @@ embedding_function = SentenceTransformerEmbeddings(
     model_name="all-MiniLM-L6-v2")
 
 persist_folder = str(Path(__file__).parent.joinpath("chroma_data"))
+client = chromadb.Client(Settings(chroma_db_impl='duckdb+parquet',
+                                  persist_directory=persist_folder))
 
 if os.environ.get("TESTING"):
-    persist_folder = None
+    client = chromadb.Client()
 
-client = chromadb.Client(
-    Settings(chroma_db_impl='duckdb+parquet', persist_directory=persist_folder))
 
 collection_name = "asops"
 
@@ -46,5 +46,4 @@ def similarity_query(query: str) -> List[Document]:
 def _get_chroma_db():
     return Chroma(collection_name=collection_name,
                   embedding_function=embedding_function,
-                  persist_directory=persist_folder,
                   client=client)
