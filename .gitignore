@@ -1,5 +1,7 @@
 ## Local data files
 embeddings/downloaded_pdfs/**
+## generated during testing
+.chroma/**
 
 ## IDE ignores
 .vscode/**
