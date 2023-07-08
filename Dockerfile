@@ -7,8 +7,8 @@ RUN poetry config virtualenvs.create false
 
 COPY pyproject.toml poetry.lock /app/
 
-RUN poetry --with asop_bot install
+RUN poetry install --with asop_bot
 
-COPY asop_bot /app
+COPY ./asop_bot /app/
 
 CMD ["streamlit", "run", "/app/asop_bot.py"]
