@@ -36,8 +36,6 @@ def process():
         Processes the downloaded ASOPs in a vector store
     """
     pipeline.process()
-    docs = similarity_query("what is ASOP 1?")
-    print(docs)
 
 
 if __name__ == '__main__':

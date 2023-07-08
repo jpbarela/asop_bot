@@ -15,5 +15,5 @@ class AbcdPage():
         """
             Returns a list of urls to PDF versions of the ASOPs
         """
-        pdf_links = self._content.find("a", string="Download PDF")
-        return [pdf_links["href"]]
+        pdf_links = self._content.find_all("a", string="Download PDF")
+        return [pdf_link["href"] for pdf_link in pdf_links]

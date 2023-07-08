@@ -9,5 +9,6 @@ def test_pdf_links() -> None:
     page = AbcdPage(f.read())
     f.close()
 
-    assert page.pdf_links() == [
-        "http://www.actuarialstandardsboard.org/wp-content/uploads/2013/10/asop001_170.pdf"]
+    results = page.pdf_links()
+    assert len(results) == 57
+    assert results[0] == "http://www.actuarialstandardsboard.org/wp-content/uploads/2013/10/asop001_170.pdf"
