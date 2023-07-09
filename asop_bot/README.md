@@ -1,6 +1,6 @@
-# ASOP Bot
+# asop_bot
 
-This README contains information specifically about the ASOP Bot service.
+This README contains information specifically about the `asop_bot` package/service.
 
 ## Dependencies
 

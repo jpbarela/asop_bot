@@ -24,21 +24,33 @@ collection_name = "asops"
 
 
 def count() -> int:
+    """
+        Returns the number of documents in the current vector store.
+    """
     collection = client.get_collection(name=collection_name)
     return collection.count()
 
 
 def delete_store() -> None:
+    """
+        Deletes the current vector store
+    """
     client.reset()
     client.create_collection(collection_name)
 
 
 def save_documents(docs: List[Document]) -> None:
+    """
+        Adds the documents in docs to the vector store
+    """
     db = _get_chroma_db()
     db.add_documents(docs)
 
 
 def similarity_query(query: str) -> List[Document]:
+    """
+        Returns the documents based on a similarity query with the query argument
+    """
     db = _get_chroma_db()
     return db.similarity_search(query)
 

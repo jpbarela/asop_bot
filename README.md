@@ -10,7 +10,8 @@ For the quick start, users will need to have [Docker](https://www.docker.com/) a
 environmental variable `OPENAI_API_KEY`. This key is only used to communicate with OpenAI and is not sent to any other
 service.
 
-Users who have `make` installed on their system, most Linux machines and MacOs users, will be able to
+Users who have `make` installed on their system, most Linux machines and MacOs users, will be able to run a number of
+commands to interact with repo easier.
 
 Users who want to experiment with the code will also need Python installed and the [Poetry](https://python-poetry.org/).
 
@@ -24,9 +25,18 @@ the ASOP Bot and associated database. The bot can be accessed at [http://localho
 The ASOP Bot is made up of several different components. Each component has more information about the design of the
 component in a separate README but a high level description is provided here.
 
-### ASOP Bot
+### asop_bot
 
 The ASOP Bot is the main interface. It is currently powered by [Streamlit](https://streamlit.io/),
 [Langchain](https://python.langchain.com/docs/get_started/introduction.html) OpenAI.
+
+### embeddings
+
+A data pipeline for translating the ASOPs into a vector database that is used by asop_bot to determine relevant
+documents.
+
+### vectorstore
+
+An abstraction of a vector database.
 
 ## Troubleshooting
