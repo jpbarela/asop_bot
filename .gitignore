@@ -1,1 +1,11 @@
+## Local data files
+embeddings/downloaded_pdfs/**
+## generated during testing
+.chroma/**
+
+## IDE ignores
 .vscode/**
+
+## python tooling ignores
+**/.python-version
+**/__pycache__/**
